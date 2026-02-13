@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Valentine 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Dancing+Script:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background: linear-gradient(135deg, #dbeafe, #ffffff, #bfdbfe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+    color:#1e3a8a;
+}
+
+.scene {
+    position:absolute;
+    width:80%;
+    opacity:0;
+    transition:opacity 1.5s;
+}
+
+.active {
+    opacity:1;
+}
+
+h1 {
+    font-size:48px;
+    font-family:'Playfair Display', serif;
+}
+
+.specialFont {
+    font-family:'Dancing Script', cursive;
+    font-size:42px;
+}
+
+.normalFont {
+    font-family:'Poppins', sans-serif;
+    font-size:22px;
+}
+
+button {
+    padding:12px 25px;
+    margin:15px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#yesBtn {
+    background:#3b82f6;
+    color:white;
+}
+
+#noBtn {
+    background:white;
+    border:2px solid #3b82f6;
+    color:#1e3a8a;
+}
+
+button:hover {
+    transform:scale(1.1);
+}
+
+.floating {
+    position:absolute;
+    font-size:30px;
+    animation: float 6s infinite linear;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Teddies & Hearts -->
+<div class="floating" style="left:10%;">🧸💙</div>
+<div class="floating" style="left:30%; animation-delay:2s;">💙🧸</div>
+<div class="floating" style="left:60%; animation-delay:4s;">💙💙</div>
+<div class="floating" style="left:80%; animation-delay:1s;">🧸💙</div>
+
+<!-- Scene 1 -->
+<div class="scene active">
+<h1>Hii Special 💙</h1>
+<p class="normalFont">
+This is not just a page…<br>
+It’s a small little universe where it’s just you and me 💫💙
+</p>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene">
+<p class="specialFont">
+You walked into my life<br>
+And suddenly everything turned sky blue ☁💙
+</p>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene">
+<p class="normalFont">
+You are my calm…<br>
+My chaos…<br>
+My favorite notification 😌📱💙<br><br>
+And honestly… you make my heart race faster than my WiFi 😂
+</p>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene">
+<h1 class="specialFont">
+Uday 💙
+</h1>
+<p class="normalFont">
+In the middle of all the noise,<br>
+You are my peace.<br><br>
+In the middle of my heart,<br>
+It’s only YOU 🧸💙
+</p>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene">
+<p class="normalFont">
+If loving you was homework,<br>
+I would never miss submission 😌<br><br>
+If loving you was an exam,<br>
+I’d top every single time 💙✨
+</p>
+</div>
+
+<!-- FINAL PROPOSAL -->
+<div class="scene" id="proposalScene">
+<h1>Will you be my Valentine? 💙</h1>
+<button id="yesBtn" onclick="yesClicked()">YES 💙</button>
+<button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+</div>
+
+<!-- AFTER YES MESSAGE -->
+<div class="scene" id="finalScene">
+<h1 class="specialFont">
+I love you Uday 💙🧸
+</h1>
+<p class="normalFont">
+You are mine forever… 💍💙<br><br>
+My favorite person,<br>
+My forever blue sky ☁💙<br>
+My Valentine for life ✨🧸
+</p>
+</div>
+
+<script>
+
+let scenes = document.querySelectorAll(".scene");
+let current = 0;
+
+function nextScene() {
+    if(current < scenes.length - 1){
+        scenes[current].classList.remove("active");
+        current++;
+        scenes[current].classList.add("active");
+    }
+}
+
+setInterval(nextScene, 5000);
+
+function moveNo(){
+    let btn = document.getElementById("noBtn");
+    btn.style.position="absolute";
+    btn.style.top=Math.random()*window.innerHeight+"px";
+    btn.style.left=Math.random()*window.innerWidth+"px";
+}
+
+function yesClicked(){
+    scenes[current].classList.remove("active");
+    document.getElementById("finalScene").classList.add("active");
+    document.body.style.background="linear-gradient(135deg,#3b82f6,#93c5fd,#ffffff)";
+}
+
+</script>
+
+</body>
+</html>
